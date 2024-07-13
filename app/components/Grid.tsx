@@ -10,7 +10,6 @@ export default function Grid() {
     const [grid, setGrid] = useState(matrix);
     const [running, setRunning] = useState(false);
     const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
-    const beep = new Audio('/beep.mp3');
 
     const handler = (i: number, j: number) => {
         setGrid(prevGrid => {
@@ -78,10 +77,6 @@ export default function Grid() {
             if (intervalId) clearInterval(intervalId);
         };
     }, [intervalId]);
-
-    useEffect(() => {
-      beep.play()
-  }, [grid]);
 
 
 
