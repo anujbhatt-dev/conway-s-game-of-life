@@ -137,7 +137,7 @@ export default function Grid() {
             type="range"
             id="rangeInput"
             min="200"
-            max="1000"
+            max="800"
             value={rangeValue}
             onChange={handleRangeChange}
           />
