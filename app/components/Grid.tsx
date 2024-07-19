@@ -13,7 +13,7 @@ export default function Grid() {
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
   // State to store the value of the range input
-  const [rangeValue, setRangeValue] = useState(500); // Initial value is set to 50
+  const [rangeValue, setRangeValue] = useState(300); // Initial value is set to 50
 
   // Handler function for onChange event
   const handleRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -114,8 +114,8 @@ export default function Grid() {
                   onClick={() => handler(i, j)}
                   className={
                     col
-                      ? 'w-3 h-3 sm:w-4 sm:h-4 text-[transparent] border-[.5px] m-[0px] sm:m-[1.5px] bg-green-400 cursor-pointer'
-                      : 'w-3 h-3 sm:w-4 sm:h-4 text-[transparent] border-[.5px] m-[0px] sm:m-[1.5px] cursor-pointer'
+                      ? 'w-3 h-3 sm:w-4 sm:h-4 text-[transparent] border-[.5px] m-[0px] sm:m-[1.5px] bg-yellow-400 cursor-pointer'
+                      : 'w-3 h-3 sm:w-4 sm:h-4 text-[transparent] border-[.5px] m-[0px] sm:m-[1.5px] bg-[#333333] opacity-[0.8] cursor-pointer'
                   }
                   key={i + j}
                 ></div>
@@ -125,14 +125,13 @@ export default function Grid() {
         );
       })}
       <div className="flex flex-row justify-center">
-        <button className={running ? "w-[5rem] px-4 py-2 m-2 bg-red-500 text-white rounded cursor-pointer hover:-translate-y-0.5" : "w-[5rem] px-4 py-2 m-2 bg-blue-500 text-white rounded cursor-pointer hover:-translate-y-0.5"} onClick={startStop}>{running ? "Stop" : "Start"}</button>
+        <button className={running ? "w-[5rem] px-4 py-2 m-2 bg-red-500 text-white rounded cursor-pointer hover:-translate-y-0.5" : "w-[5rem] px-4 py-2 m-2 bg-green-700 text-white rounded cursor-pointer hover:-translate-y-0.5"} onClick={startStop}>{running ? "Stop" : "Start"}</button>
         <button className="w-[5rem] px-4 py-2 m-2 bg-blue-500 text-white rounded cursor-pointer hover:-translate-y-0.5" onClick={nextStep}>Next</button>
-        <button className="w-[5rem] px-4 py-2 m-2 bg-blue-500 text-white rounded cursor-pointer hover:-translate-y-0.5" onClick={reset}>Reset</button>
+        <button className="w-[5rem] px-4 py-2 m-2 bg-white text-black rounded cursor-pointer hover:-translate-y-0.5" onClick={reset}>Reset</button>
       </div>
-      <div className='border-[1.5px] border-white text-white sm:fixed bottom-[100px] right-[100px] rounded px-5 py-3'>
-        <div>
-          <label htmlFor="rangeInput">Set Speed</label><br />
-          <input
+      <div className='border-[1.5px] border-white text-white sm:fixed bg-[#333] bottom-[100px] right-[100px] rounded-[10px] px-5 py-3 font-medium'>
+        <div>        
+          <input className=''
             type="range"
             id="rangeInput"
             min="200"
@@ -140,10 +139,10 @@ export default function Grid() {
             value={rangeValue}
             onChange={handleRangeChange}
           />
-          <p>Speed: {rangeValue}</p>
+          <p>Speed {rangeValue}</p>
         </div>
         <div>
-          <p>Count: {count}</p>
+          <p>Count {count}</p>
         </div>
       </div>
     </div>
