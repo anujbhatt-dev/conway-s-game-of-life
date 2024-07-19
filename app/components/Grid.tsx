@@ -19,8 +19,7 @@ export default function Grid() {
   const handleRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
     setRangeValue(parseInt(e.target.value));
     if (intervalId) clearInterval(intervalId);
-    const id = setInterval(nextStep, 1000 - rangeValue);
-    setIntervalId(id);
+    if(running) setRunning(false)
   };
 
   const playSound = () => {
