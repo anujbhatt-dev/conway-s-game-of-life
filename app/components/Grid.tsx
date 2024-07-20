@@ -1,6 +1,6 @@
+"use client"
+
 import React, { ChangeEvent, useEffect, useState } from 'react';
-
-
 const rows: number = 30;
 const cols: number = 30;
 type Matrix = number[][];
@@ -11,11 +11,8 @@ export default function Grid() {
   const [count, setCount] = useState(0);
   const [running, setRunning] = useState(false);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+  const [rangeValue, setRangeValue] = useState(300);
 
-  // State to store the value of the range input
-  const [rangeValue, setRangeValue] = useState(300); // Initial value is set to 50
-
-  // Handler function for onChange event
   const handleRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
     setRangeValue(parseInt(e.target.value));
     if (intervalId) clearInterval(intervalId);
